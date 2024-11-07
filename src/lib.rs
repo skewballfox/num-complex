@@ -593,8 +593,8 @@ impl<T: Float> Complex<T> {
     /// ```
     #[inline]
     pub fn finv(self) -> Complex<T> {
-        let norm = self.norm();
-        self.conj() / norm / norm
+        let squared_norm = self.re.powi(2) + self.im.powi(2);
+        self.conj() / squared_norm
     }
 
     /// Returns `self/other` using floating-point operations.
